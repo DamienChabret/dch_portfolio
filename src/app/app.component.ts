@@ -15,7 +15,16 @@ import { NotificationContainerComponent } from '@components/notifications/notifi
     FooterComponent,
     NotificationContainerComponent,
   ],
-  templateUrl: '../index.html',
+  template: `
+    <app-header></app-header>
+      <div class="page-wrapper">
+        <div class="content-padding">
+          <router-outlet></router-outlet>
+        </div>
+        <app-footer></app-footer>
+      </div>
+      <app-notification-container></app-notification-container>
+  `,
   styles: [
     `
       .page-wrapper {

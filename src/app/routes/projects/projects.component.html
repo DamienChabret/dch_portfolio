@@ -1,0 +1,14 @@
+<div *ngIf="listOfProjects.length > 0">
+  <div *ngFor="let item of listOfProjectsByProjectType | keyvalue">
+      <p class="project-category"> {{item.key}} <p>
+        
+      <div class="project-list">
+        <div class="project" *ngFor="let project of item.value">
+          <app-projectCard
+            [ProjectName]="project.name"
+            [ProjectDescription]="project.description">
+          </app-projectCard>
+        </div>
+      </div>
+  </div>
+</div>

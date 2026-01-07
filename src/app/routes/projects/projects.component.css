@@ -1,0 +1,19 @@
+.project-category {
+   text-decoration: underline;
+   text-align: Left;
+   font-size: 25px;
+   margin:20px;
+}
+
+.project-list {
+   display: flex;
+   flex-wrap: wrap;
+}
+
+.project {
+   flex: 1 1 1;
+   box-sizing: border-box;
+   padding: 10px;
+   text-align: center;
+
+}
