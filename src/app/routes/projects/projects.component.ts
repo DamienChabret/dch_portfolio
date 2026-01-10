@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Project } from '@models/Project';
 import { ProjectType } from '@models/ProjectType';
 import { ProjectCardComponent } from '@components/projects/projectCard/projectCard.component';
-import { CommonModule } from '@angular/common'; // <-- IMPORTANT
-
+import { MockProjectService } from '@services/MockProjectService';
+import { Router } from '@angular/router';
+import { RouteUrl } from 'app/options/routesOptions';
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
@@ -12,39 +14,16 @@ import { CommonModule } from '@angular/common'; // <-- IMPORTANT
   standalone: true
 })
 export class ProjectsComponent implements OnInit {
+  private router = inject(Router);
+  private projectService : MockProjectService = inject(MockProjectService);
   listOfProjectsByProjectType : Map<string, Project[]> = null!;
   listOfProjects : Project[] = [];
-  projectTypeList: string[] = [];
-
-  constructor() { }
+  constructor(router : Router) { }
 
   ngOnInit() {
     this.listOfProjectsByProjectType = new Map<string, Project[]>();
-    this.projectTypeList = Object.keys(ProjectType);
 
-    this.listOfProjects.push({
-      description: 'Description de zinzin',
-      name: 'portolio',
-      type: ProjectType.WEB
-    });
-
-     this.listOfProjects.push({
-      description: 'Description de zinzin',
-      name: 'Site cool',
-      type: ProjectType.WEB
-    });
-
-     this.listOfProjects.push({
-      description: 'Description de zinzin',
-      name: 'Data warehouse',
-      type: ProjectType.DATA
-    });
-
-     this.listOfProjects.push({
-      description: 'Description de zinzin',
-      name: 'Game unity',
-      type: ProjectType.GAME
-    });
+    this.listOfProjects = this.projectService.getAll();
 
     // On trie les projets par catégories
     this.listOfProjects.forEach(x => {
@@ -53,7 +32,9 @@ export class ProjectsComponent implements OnInit {
       }
       this.listOfProjectsByProjectType.get(x.type)?.push(x);
     });
+  }
 
-    console.log(this.listOfProjectsByProjectType);
+  navigateToProjectDetails(id: number) {
+    this.router.navigateByUrl(RouteUrl.PROJECT(id));
   }
 }

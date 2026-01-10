@@ -1,8 +1,8 @@
 .project-category {
-   text-decoration: underline;
    text-align: Left;
    font-size: 25px;
    margin:20px;
+   font-weight: bold;
 }
 
 .project-list {
@@ -10,10 +10,9 @@
    flex-wrap: wrap;
 }
 
-.project {
+.project-div {
    flex: 1 1 1;
    box-sizing: border-box;
    padding: 10px;
    text-align: center;
-
 }

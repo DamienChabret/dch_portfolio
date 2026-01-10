@@ -1,0 +1,19 @@
+<div class="project-details" *ngIf="project !== undefined">
+  <div class="project-details-img">
+  </div>
+  <div class="project-details-content">
+    <div class="description">
+      <p class="project-title"> {{ project.name }} </p>
+      <p> {{ project.description }} </p>
+    </div>
+    <div class="other">
+      <p> {{ project.type }} </p>
+    </div>
+  
+  </div>
+ 
+</div>
+
+<div *ngIf="project === undefined">
+  <p> le projet n'existe pas </p>
+</div>

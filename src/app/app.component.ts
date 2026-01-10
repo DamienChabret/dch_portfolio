@@ -36,8 +36,8 @@ import { NotificationContainerComponent } from '@components/notifications/notifi
 
       .content-padding {
         flex: 1;
-        margin-right: 30px;
-        margin-left: 30px;
+        margin-right: 5%;
+        margin-left: 5%;
       }
     `,
   ],

@@ -1,8 +1,36 @@
 .project-card {
-   background-color: antiquewhite;
+   background-color: white;
    border-radius: 15px;
-   box-shadow: 1px;
+   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
    width: 400px;
-   padding: 15px;
    margin: 5px;
+   height: 250px;
+   transition: transform .2s;
+   background-clip: content-box, border-box;
+
+   &:hover {
+      transform: scale(1.1);
+      cursor: pointer;
+   }
+}
+
+
+.project-img {
+   height: 40%;
+   background: linear-gradient(blue, pink);
+   border-top-left-radius: 15px;
+   border-top-right-radius: 15px;
+}
+
+.project-content {
+   height: 60%;
+   padding: 15px;
+}
+
+.project-name {
+  font-family: 'Lucida Sans' sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: black;
+  position: relative;
 }

@@ -1,0 +1,31 @@
+.project-details {
+   margin: 30px;
+}
+
+.project-details-img {
+   height: 100px;
+   background: linear-gradient(blue, pink);
+}
+
+.project-details-content {
+   height: auto;
+   display: flex;
+   flex-direction: row;
+   padding-top: 15px;
+}
+
+.description {
+   width: 70%;
+}
+
+.other {
+   border: 1px black solid;
+   width: 30%;
+   height: 300px;
+   position: flex;
+}
+
+.project-title {
+   font-size: 30px;
+   font-weight: bold;
+}

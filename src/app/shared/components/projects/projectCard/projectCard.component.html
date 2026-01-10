@@ -1,5 +1,9 @@
-<div class="project-card">
-  <p class="project-name"> {{ ProjectName }}</p>
-  <p class="project-description"> {{ ProjectDescription }}</p>
-  <p class="project-type"> {{ ProjectType }}</p>
+<div class="project-card" (click)="sendClickEvent()">
+  <div class="project-img">
+  </div>
+  <div class="project-content">
+    <p class="project-name"> {{ Project.name }}</p>
+    <p class="project-description"> {{ Project.shortDescription }}</p>
+    <p class="project-type"> {{ Project.type }}</p>
+  </div>
 </div>

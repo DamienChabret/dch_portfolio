@@ -1,14 +1,16 @@
 <div *ngIf="listOfProjects.length > 0">
+  <!-- On boucle sur les listes selon les types de projets -->
   <div *ngFor="let item of listOfProjectsByProjectType | keyvalue">
-      <p class="project-category"> {{item.key}} <p>
-        
-      <div class="project-list">
-        <div class="project" *ngFor="let project of item.value">
-          <app-projectCard
-            [ProjectName]="project.name"
-            [ProjectDescription]="project.description">
-          </app-projectCard>
-        </div>
+    <p class="project-category"> {{item.key | uppercase}} <p>
+      
+    <!-- On boucle sur les projets du type -->
+    <div class="project-list">
+      <div class="project-div" *ngFor="let project of item.value">
+        <app-projectCard
+          [Project]="project"
+          (projectEvent)="navigateToProjectDetails($event)">
+        </app-projectCard>
       </div>
+    </div>
   </div>
 </div>
