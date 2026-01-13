@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-homeRoute',
   templateUrl: './homeRoute.component.html',
   styleUrls: ['./homeRoute.component.css'],
-  standalone: true 
+  standalone: true
 })
 export class HomeRouteComponent implements OnInit {
 

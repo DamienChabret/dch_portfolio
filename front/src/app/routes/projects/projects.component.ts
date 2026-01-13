@@ -1,11 +1,11 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Project } from '@models/Project';
-import { ProjectType } from '@models/ProjectType';
 import { ProjectCardComponent } from '@components/projects/projectCard/projectCard.component';
-import { MockProjectService } from '@services/MockProjectService';
 import { Router } from '@angular/router';
-import { RouteUrl } from 'app/options/routesOptions';
+import { RoutesConfig } from 'app/configs/routes.config';
+import {ProjectService} from "@services/ProjectService";
+
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
@@ -15,15 +15,15 @@ import { RouteUrl } from 'app/options/routesOptions';
 })
 export class ProjectsComponent implements OnInit {
   private router = inject(Router);
-  private projectService : MockProjectService = inject(MockProjectService);
+  private projectService : ProjectService = inject(ProjectService);
   listOfProjectsByProjectType : Map<string, Project[]> = null!;
   listOfProjects : Project[] = [];
   constructor(router : Router) { }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.listOfProjectsByProjectType = new Map<string, Project[]>();
 
-    this.listOfProjects = this.projectService.getAll();
+    this.listOfProjects = await this.projectService.getAll();
 
     // On trie les projets par catégories
     this.listOfProjects.forEach(x => {
@@ -35,6 +35,6 @@ export class ProjectsComponent implements OnInit {
   }
 
   navigateToProjectDetails(id: number) {
-    this.router.navigateByUrl(RouteUrl.PROJECT(id));
+    this.router.navigateByUrl(RoutesConfig.PROJECT(id));
   }
 }

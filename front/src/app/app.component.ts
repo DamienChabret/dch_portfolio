@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, LOCALE_ID} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './shared/components/header/header.component';
@@ -8,6 +8,7 @@ import { NotificationContainerComponent } from '@components/notifications/notifi
 @Component({
   selector: 'app-root',
   standalone: true,
+  providers: [ { provide: LOCALE_ID, useValue: "fr-FR" }],
   imports: [
     RouterOutlet,
     CommonModule,
@@ -25,21 +26,26 @@ import { NotificationContainerComponent } from '@components/notifications/notifi
       </div>
       <app-notification-container></app-notification-container>
   `,
-  styles: [
-    `
-      .page-wrapper {
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-        overflow-x: hidden;
-      }
+  styleUrl: '../assets/styles.scss',
+  // styles: [
+  //   `
+  //     .page-wrapper {
+  //       display: flex;
+  //       flex-direction: column;
+  //       min-height: 100vh;
+  //       overflow-x: hidden;
+  //     }
 
-      .content-padding {
-        flex: 1;
-        margin-right: 5%;
-        margin-left: 5%;
-      }
-    `,
-  ],
+  //     .content-padding {
+  //       flex: 1;
+  //       margin-right: 5%;
+  //       margin-left: 5%;
+  //     }
+
+  //     .route-title {
+        
+  //     }
+  //   `,
+  // ],
 })
 export class AppComponent {}

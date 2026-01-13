@@ -2,12 +2,29 @@
   <div class="project-details-img">
   </div>
   <div class="project-details-content">
-    <div class="description">
+    <!-- left side -->
+    <div class="project-left-side">
       <p class="project-title"> {{ project.name }} </p>
-      <p> {{ project.description }} </p>
+      <p class="project-description"> {{ project.description }} </p>
     </div>
-    <div class="other">
-      <p> {{ project.type }} </p>
+    <!-- right side -->
+    <div class="project-right-side">
+      <p> <span class="other-title"> Type </span> : {{ project.type }} </p>
+      <p> <span class="other-title"> Status </span> : {{ project.status }} </p>
+    
+      
+      
+      <div class="links-content">
+        <hr />
+        <div class="links">
+          @if (project.githubLink) {
+          <a class="github-link" [href]="project.githubLink" target="_blank">
+            <img src="/assets/icons/github-brands-solid-full.svg" />
+          </a>
+        }
+        </div>
+        
+      </div>
     </div>
   
   </div>

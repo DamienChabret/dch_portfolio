@@ -1,16 +1,23 @@
-<div *ngIf="listOfProjects.length > 0">
-  <!-- On boucle sur les listes selon les types de projets -->
-  <div *ngFor="let item of listOfProjectsByProjectType | keyvalue">
-    <p class="project-category"> {{item.key | uppercase}} <p>
-      
-    <!-- On boucle sur les projets du type -->
-    <div class="project-list">
-      <div class="project-div" *ngFor="let project of item.value">
-        <app-projectCard
-          [Project]="project"
-          (projectEvent)="navigateToProjectDetails($event)">
-        </app-projectCard>
+<h1 class="route-title"> Projects </h1>
+
+@if(listOfProjects.length > 0) {
+  <div>
+    <!-- On boucle sur les listes selon les types de projets -->
+    <div *ngFor="let item of listOfProjectsByProjectType | keyvalue">
+      <p class="project-category"> {{item.key | uppercase}} <p>
+      <hr/>
+        
+      <!-- On boucle sur les projets du type -->
+      <div class="project-list">
+        <div class="project-div" *ngFor="let project of item.value">
+          <app-projectCard
+            [Project]="project"
+            (projectEvent)="navigateToProjectDetails($event)">
+          </app-projectCard>
+        </div>
       </div>
     </div>
   </div>
-</div>
+} @else {
+  <p> aucun projets </p>
+}

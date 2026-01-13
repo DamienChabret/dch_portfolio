@@ -1,0 +1,79 @@
+/* Conteneur */
+.contact {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Formulaire */
+.form {
+  background: #f5f5f5;
+  padding: 2.5rem;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 700px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+
+  color: #000;
+}
+
+/* Titre */
+.form-title {
+  grid-column: span 2;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+/* Champs */
+.field {
+  width: 100%;
+}
+
+/* Demi largeur */
+.field.half {
+  grid-column: span 1;
+}
+
+/* Pleine largeur */
+.field.full {
+  grid-column: span 2;
+}
+
+/* Inputs */
+input,
+textarea {
+  color: #000;
+}
+
+/* Textarea */
+textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+/* Bouton */
+.send-button {
+  grid-column: span 2;
+  justify-self: center;
+  margin-top: 1.5rem;
+
+  padding: 0.75rem 3rem;
+  font-size: 1rem;
+  border-radius: 25px;
+  border: 1px solid #000;
+  color: #000;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* Bouton désactivé */
+.send-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

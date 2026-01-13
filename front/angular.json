@@ -5,6 +5,9 @@
   "projects": {
     "MyApp": {
       "projectType": "application",
+      "i18n": {
+        "sourceLocale": "fr-FR"
+      },
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
@@ -25,9 +28,10 @@
             "inlineStyleLanguage": "scss",
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
+              "node_modules/swiper/swiper-bundle.min.css",
               "src/assets/app-theme.scss",
               "@angular/material/prebuilt-themes/purple-green.css",
-              "src/styles.scss"
+              "src/assets/styles.scss"
             ],
             "stylePreprocessorOptions": {
               "includePaths": ["src/styles"]
@@ -91,7 +95,7 @@
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "@angular/material/prebuilt-themes/purple-green.css",
-              "src/styles.scss"
+              "src/assets/styles.scss"
             ],
             "scripts": []
           }

@@ -3,7 +3,7 @@
 }
 
 .project-details-img {
-   height: 100px;
+   height: 200px;
    background: linear-gradient(blue, pink);
 }
 
@@ -14,18 +14,82 @@
    padding-top: 15px;
 }
 
-.description {
+hr {
+   width: 80%;
+}
+
+/* Left side */
+.project-left-side {
    width: 70%;
 }
 
-.other {
-   border: 1px black solid;
+.project-description {
+   min-height: 300px;
+}
+
+.images-title {
+   font-weight: bold;
+   text-align: center;
+}
+
+.list-images {
+  width: 80%;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Right side */
+.project-right-side {
+   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
    width: 30%;
-   height: 300px;
-   position: flex;
+   height: 100%;
+   padding: 15px;
+   min-height: 300px;
+   position: relative;
+
+}
+
+.other-title {
+   font-weight: bold;
 }
 
 .project-title {
    font-size: 30px;
    font-weight: bold;
+}
+
+.links-seperator {
+   position:absolute;
+   bottom:0;
+   left: 0;
+   right: 0;
+}
+
+.links-content {
+   position:absolute;
+   bottom:0;
+   left: 0;
+   right: 0;
+   margin-left: auto;
+   margin-right: auto;     
+}
+
+.links {
+   display: flex;
+   justify-content: center;
+   align-items: center; 
+}
+
+.github-link img {
+   height: 50px;
+   width: 50px;
+}
+
+.github-link {
+   position: relative;
+
+}
+.github-link:hover {
+   opacity: 0.75;
 }
