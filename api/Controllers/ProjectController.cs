@@ -1,5 +1,6 @@
 using api.Models;
 using api.Services;
+using api.Exceptions;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api.Controllers
@@ -13,8 +14,8 @@ namespace api.Controllers
         {
             try
             {
-                List<Project> projectList = await _projectService.GetAll();
-                return Ok(projectList);
+                List<Project> projects = await _projectService.GetAll();
+                return Ok(projects);
             }
             catch (Exception e)
             {
@@ -31,6 +32,10 @@ namespace api.Controllers
                 Project project = await _projectService.GetById(id);
                 return Ok(project); 
             }
+            catch (ExceptionItemNotFound e)
+            {
+                return NotFound(e.Message);
+            }
             catch (Exception e)
             {
                 return BadRequest(e.Message);
@@ -38,13 +43,13 @@ namespace api.Controllers
 
         }
         
-        [HttpPost]
-        public async Task<IActionResult> Create([FromBody] Project project)
+        [HttpPut]
+        public async Task<IActionResult> Create([FromBody] Project newProject)
         {
             try
             {
-                await _projectService.Create(project);
-                return Ok(project);
+                await _projectService.Create(newProject);
+                return Ok(newProject);
             }
             catch (Exception e)
             {

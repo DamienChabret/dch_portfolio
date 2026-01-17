@@ -62,6 +62,33 @@ namespace api.Migrations
                     b.ToTable("Careers");
                 });
 
+            modelBuilder.Entity("api.Models.Degree", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("CareerId")
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime>("DateObtained")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CareerId");
+
+                    b.ToTable("Degrees");
+                });
+
             modelBuilder.Entity("api.Models.Project", b =>
                 {
                     b.Property<Guid>("Id")
@@ -97,6 +124,108 @@ namespace api.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Projects");
+                });
+
+            modelBuilder.Entity("api.Models.Skill", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid?>("CareerId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
+
+                    b.Property<Guid?>("ProjectId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CareerId");
+
+                    b.HasIndex("ProjectId");
+
+                    b.ToTable("Skills");
+                });
+
+            modelBuilder.Entity("api.Models.Tool", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid?>("CareerId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<Guid?>("ProjectId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CareerId");
+
+                    b.HasIndex("ProjectId");
+
+                    b.ToTable("Tools");
+                });
+
+            modelBuilder.Entity("api.Models.Degree", b =>
+                {
+                    b.HasOne("api.Models.Career", "Career")
+                        .WithMany()
+                        .HasForeignKey("CareerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Career");
+                });
+
+            modelBuilder.Entity("api.Models.Skill", b =>
+                {
+                    b.HasOne("api.Models.Career", null)
+                        .WithMany("Skills")
+                        .HasForeignKey("CareerId");
+
+                    b.HasOne("api.Models.Project", null)
+                        .WithMany("Skills")
+                        .HasForeignKey("ProjectId");
+                });
+
+            modelBuilder.Entity("api.Models.Tool", b =>
+                {
+                    b.HasOne("api.Models.Career", null)
+                        .WithMany("Tools")
+                        .HasForeignKey("CareerId");
+
+                    b.HasOne("api.Models.Project", null)
+                        .WithMany("Tools")
+                        .HasForeignKey("ProjectId");
+                });
+
+            modelBuilder.Entity("api.Models.Career", b =>
+                {
+                    b.Navigation("Skills");
+
+                    b.Navigation("Tools");
+                });
+
+            modelBuilder.Entity("api.Models.Project", b =>
+                {
+                    b.Navigation("Skills");
+
+                    b.Navigation("Tools");
                 });
 #pragma warning restore 612, 618
         }

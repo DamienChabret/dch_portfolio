@@ -1,0 +1,55 @@
+<div class="createCareer">
+  <form class="form" [formGroup]="careerForm" (ngSubmit)="onSubmit()">
+    <h1 class="form-title">Create Career</h1>
+
+    <!-- Nom -->
+    <mat-form-field appearance="fill" class="field half">
+      <mat-label>Nom</mat-label>
+      <input matInput formControlName="name" placeholder="Nom">
+    </mat-form-field>
+
+    <!-- Lieu -->
+    <mat-form-field appearance="fill" class="field half">
+      <mat-label>Lieu</mat-label>
+      <input matInput formControlName="place" placeholder="Lieu">
+    </mat-form-field>
+
+    <!-- Short description -->
+    <mat-form-field appearance="fill" class="field half">
+      <mat-label>Short description</mat-label>
+      <input matInput formControlName="shortDescription" placeholder="Short description">
+    </mat-form-field>
+
+    <!-- Description -->
+    <mat-form-field appearance="fill" class="field half">
+      <mat-label>Description</mat-label>
+      <input matInput formControlName="description" placeholder="Description">
+    </mat-form-field>
+
+    <!-- Date de début -->
+    <mat-form-field appearance="fill" class="field half">
+      <mat-label>Date de début</mat-label>
+      <input matInput type="date" formControlName="beginDate" placeholder="Date de début">
+    </mat-form-field>
+
+    <!-- Date de fin -->
+    <mat-form-field appearance="fill" class="field half">
+      <mat-label>Date de fin</mat-label>
+      <input matInput type="date" formControlName="endDate" placeholder="Date de fin">
+    </mat-form-field>
+
+    <!-- Contexte -->
+     <mat-form-field appearance="fill" class="field half">
+      <mat-label>Contexte</mat-label>
+      <mat-select>
+        @for (contextType of careerContextList; track contextType) {
+          <mat-option [value]="contextType">{{contextType}}</mat-option>
+        }
+      </mat-select>
+     </mat-form-field>
+
+    <button matButton class="send-button" [disabled]="careerForm.invalid">
+      Envoyer
+    </button>
+  </form>
+</div>

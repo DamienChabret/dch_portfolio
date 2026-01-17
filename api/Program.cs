@@ -3,8 +3,10 @@ using System.Text.Json.Serialization;
 using api.Data;
 using api.Services;
 
-var builder = WebApplication.CreateBuilder(args);
+// Avoid datetime errors because of UTC, etc..
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
+var builder = WebApplication.CreateBuilder(args);
 // Ajoute les services MVC (controllers)
 var allowedOrigin = builder.Configuration["AllowedOrigin"];
 Console.WriteLine($"AllowedOrigin: {allowedOrigin}");
@@ -35,7 +37,10 @@ builder.Services.AddSwaggerGen();
 
 // Services
 builder.Services.AddScoped<CareerService>();
+builder.Services.AddScoped<DegreeService>();
 builder.Services.AddScoped<ProjectService>();
+builder.Services.AddScoped<SkillService>();
+builder.Services.AddScoped<ToolService>();
 
 // Configuration de la chaîne de connexion
 var connectionString = "";

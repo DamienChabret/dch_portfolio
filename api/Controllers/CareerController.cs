@@ -1,5 +1,6 @@
 using api.Models;
 using api.Services;
+using api.Exceptions;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api.Controllers
@@ -11,8 +12,8 @@ namespace api.Controllers
       [HttpGet]
       public async Task<IActionResult> GetAll()
       {
-         List<Career> careerList = await _careerService.GetAll();
-         return Ok(careerList);
+         List<Career> careers = await _careerService.GetAll();
+         return Ok(careers);
       }
 
       [HttpGet("{id}")]
@@ -23,19 +24,23 @@ namespace api.Controllers
             Career career = await _careerService.GetById(id);
             return Ok(career);
          }
+         catch (ExceptionItemNotFound e)
+         {
+            return NotFound(e.Message);
+         }
          catch (Exception e)
          {
             return BadRequest(e.Message);
          }
       }
 
-      [HttpPost]
-      public async Task<IActionResult> Create([FromBody] Career career)
+      [HttpPut]
+      public async Task<IActionResult> Create([FromBody] Career newCareer)
       {
          try
          {
-            await _careerService.Create(career);
-            return Ok(career);
+            await _careerService.Create(newCareer);
+            return Ok(newCareer);
          }
          catch(Exception e)
          {

@@ -8,15 +8,12 @@ import { environment } from "@environments/environment";
 export class CareerService {
    public getAll() : Promise<Career[]> {
       return fetch(environment.apiUrl + EndpointConfig.CAREERS)
-         .then(res => {
-            console.log(res);
-            return res.json()
-         })
-         .then(res => {
-            return res as Career[]
-         })
+          .then(res => res.json())
+          .then(res => {
+             return res as Career[]
+          })
    }
-
+   
    public getById(id: string) : Promise<Career> | undefined {
       return fetch(environment.apiUrl + EndpointConfig.CAREERS_ID(id))
       .then(res => res.json())

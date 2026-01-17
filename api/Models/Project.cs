@@ -30,6 +30,9 @@ namespace api.Models
         
         [Required]
         public ProjectStatus Status { get; set; }
-
+        
+        public ICollection<Tool> Tools { get; set; } = new List<Tool>();
+        
+        public ICollection<Skill> Skills { get; set; } = new List<Skill>();
     }
 }

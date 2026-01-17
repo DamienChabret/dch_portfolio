@@ -1,0 +1,14 @@
+<div class="createSkill">
+  <form class="form" [formGroup]="skillForm" (ngSubmit)="onSubmit()">
+    <h1 class="form-title">Create skill</h1>
+
+    <mat-form-field appearance="fill" class="field half">
+      <mat-label>Nom</mat-label>
+      <input matInput formControlName="name" placeholder="Nom">
+    </mat-form-field>
+
+    <button matButton class="send-button" [disabled]="skillForm.invalid">
+      Envoyer
+    </button>
+  </form>
+</div>

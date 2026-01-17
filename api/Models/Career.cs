@@ -19,6 +19,9 @@ namespace api.Models
       [MaxLength(1000)]
       public string Description { get; set; } = string.Empty; 
 
+      /// <summary>
+      /// Enterprise, school, etc..
+      /// </summary>
       [Required]
       [MaxLength(250)]
       public string Place { get; set; } = string.Empty; 
@@ -30,6 +33,9 @@ namespace api.Models
       
       [Required]
       public ContextType Context { get; set; }
-
+         
+      public ICollection<Tool> Tools { get; set; } = new List<Tool>();
+        
+      public ICollection<Skill> Skills { get; set; } = new List<Skill>();
    }
 }

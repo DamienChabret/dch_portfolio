@@ -11,6 +11,10 @@ namespace api.Data
         }
 
         public DbSet<Career> Careers { get; set; }
+        public DbSet<Degree> Degrees { get; set; }
         public DbSet<Project> Projects { get; set; }
+        public DbSet<Skill> Skills { get; set; }
+        public DbSet<Tool> Tools { get; set; }
+
     }
 }
