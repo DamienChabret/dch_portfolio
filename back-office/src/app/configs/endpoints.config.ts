@@ -4,5 +4,6 @@ export const EndpointConfig = {
   PROJECTS : "api/projects",
   PROJECTS_ID : (id : string) : string => `api/projects/${id}`,
   SKILLS: "api/skills",
-  SKILLS_ID: (id: string) : string => `api/skills/${id}`
+  SKILLS_ID: (id: string) : string => `api/skills/${id}`,
+  TOOLS: "api/tools",
 };
