@@ -1,7 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Project } from '@models/Project';
-import { MockProjectService } from '@services/MockProjectService';
 import { CommonModule } from '@angular/common';
 import { PrimaryCarouselComponent } from '@components/primaryCarousel/primaryCarousel.component';
 import {ProjectService} from "@services/ProjectService";
@@ -15,9 +14,8 @@ import {ProjectService} from "@services/ProjectService";
 })
 export class ProjectComponent implements OnInit {
   private projectService : ProjectService = inject(ProjectService);
+  private route : ActivatedRoute = inject(ActivatedRoute);
   project! : Project | undefined;
-
-  constructor(private route: ActivatedRoute) { }
 
   async ngOnInit() {
     const ProjectId = this.route.snapshot.paramMap.get('id');
