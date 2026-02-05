@@ -21,5 +21,4 @@ export class ToolRouteComponent implements OnInit {
   async getAllSkills() {
     this.skills = await this.toolService.getAllAsync();
   }
-
 }

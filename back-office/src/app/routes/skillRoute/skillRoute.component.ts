@@ -3,15 +3,14 @@ import { Skill } from '@models/Skill';
 import { SkillService } from '@services/SkillService';
 import { MatTableModule } from '@angular/material/table';
 import { AddButtonComponent } from '@components/buttons/AddButton/AddButton.component';
-import { AddCareerComponent } from "@components/forms/addCareer/addCareer.component";
 import { AddSkillComponent } from "@components/forms/addSkill/addSkill.component";
 
 @Component({
-  selector: 'app-skillRoute',
+  selector: 'app-skill-route',
   templateUrl: './skillRoute.component.html',
   styleUrls: ['./skillRoute.component.css'],
   standalone: true,
-  imports: [MatTableModule, AddButtonComponent, AddCareerComponent, AddSkillComponent]
+  imports: [MatTableModule, AddButtonComponent, AddSkillComponent]
 })
 export class SkillRouteComponent implements OnInit {
   private skillService : SkillService = inject(SkillService);
@@ -25,7 +24,7 @@ export class SkillRouteComponent implements OnInit {
   }
 
   async getAllSkills() {
-    this.skills = await this.skillService.getAll();
+    this.skills = await this.skillService.getAllAsync();
   }
 
   toggleNewSkillModal() {
