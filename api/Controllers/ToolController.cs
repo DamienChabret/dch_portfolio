@@ -41,7 +41,7 @@ namespace api.Controllers
             }
         }
         
-        [HttpPut]
+        [HttpPost]
         public async Task<IActionResult> Create([FromBody] Tool newTool)
         {
             try

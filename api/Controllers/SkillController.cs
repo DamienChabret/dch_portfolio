@@ -43,7 +43,7 @@ namespace api.Controllers
 
         }
         
-        [HttpPut]
+        [HttpPost]
         public async Task<IActionResult> Create([FromBody] Skill newSkill)
         {
             try

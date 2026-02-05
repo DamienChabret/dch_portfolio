@@ -26,7 +26,7 @@ export class CareerService {
       headers.set('Content-Type', 'application/json');
       headers.set('Accept', 'application/json');
       const request: RequestInfo = new Request(environment.apiUrl + EndpointConfig.CAREERS, {
-         method: 'PUT',
+         method: 'POST',
          headers: headers,
          body: JSON.stringify(career)
       });
