@@ -5,7 +5,7 @@ import { environment } from "@environments/environment";
 
 @Injectable({providedIn: 'root'})
 export class CareerService {
-   public getAll() : Promise<Career[]> {
+   public async getAllAsync() : Promise<Career[]> {
       return fetch(environment.apiUrl + EndpointConfig.CAREERS)
           .then(res => res.json())
           .then(res => {
@@ -13,7 +13,7 @@ export class CareerService {
           })
    }
    
-   public getById(id: string) : Promise<Career> | undefined {
+   public async getByIdAsync(id: string) : Promise<Career> {
       return fetch(environment.apiUrl + EndpointConfig.CAREERS_ID(id))
       .then(res => res.json())
       .then(res => {
@@ -21,7 +21,7 @@ export class CareerService {
       })
    }
 
-   public create(career: Career): Promise<Career> {
+   public async addAsync(career: Career): Promise<Career> {
       const headers: Headers = new Headers();
       headers.set('Content-Type', 'application/json');
       headers.set('Accept', 'application/json');

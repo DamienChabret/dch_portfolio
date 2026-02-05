@@ -5,7 +5,7 @@ import { Skill } from "@models/Skill";
 
 @Injectable({providedIn: 'root'})
 export class SkillService {
-    public getAll() : Promise<Skill[]> {
+    public async getAllAsync() : Promise<Skill[]> {
         return fetch(environment.apiUrl + EndpointConfig.SKILLS)
             .then(res => res.json())
             .then(res => {
@@ -13,7 +13,7 @@ export class SkillService {
             })
     }
     
-    public getById(id: string) : Promise<Skill> | undefined {
+    public async getByIdAsync(id: string) : Promise<Skill> {
         return fetch(environment.apiUrl + EndpointConfig.SKILLS_ID(id))
             .then(res => res.json())
             .then(res => {
@@ -21,7 +21,7 @@ export class SkillService {
             })
     }
 
-    public create(skill: Skill) : Promise<Skill> {
+    public async addAsync(skill: Skill) : Promise<Skill> {
       const headers: Headers = new Headers();
       headers.set('Content-Type', 'application/json');
       headers.set('Accept', 'application/json');
