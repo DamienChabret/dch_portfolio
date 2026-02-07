@@ -5,21 +5,21 @@ import { FormsModule, FormGroup, FormControl, Validators, ReactiveFormsModule} f
 import { CommonModule } from '@angular/common';
 import { MatInputModule } from '@angular/material/input';
 import { MatOption } from "@angular/material/core";
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
 import { SkillService } from '@services/SkillService';
 import { Skill } from "@models/Skill";
 import { NotificationService } from '@utils/NotificationManager';
 
 @Component({
-  selector: 'app-addSkill',
+  selector: 'app-add-skill',
   templateUrl: './addSkill.component.html',
-  styleUrls: ['../form.component.css'],
+  styleUrls: ['./addSkill.component.css'],
   standalone: true,
   imports: [MatFormFieldModule, MatButtonModule, FormsModule, CommonModule, ReactiveFormsModule, MatInputModule, MatOption, MatSelectModule]
 })
 export class AddSkillComponent  {
   @Output()
-  private addSkill : EventEmitter<void> = new EventEmitter<void>();
+  public addSkill : EventEmitter<void> = new EventEmitter<void>();
 
   private skillService : SkillService = inject(SkillService);
   private notificationService : NotificationService = inject(NotificationService);
@@ -30,9 +30,9 @@ export class AddSkillComponent  {
 
   async onSubmit() {
     const skill : Skill = {
-      name: this.skillForm.value.name
+      Name: this.skillForm.value.name
     };
-    const response = await this.skillService.create(skill);
+    const response = await this.skillService.addAsync(skill);
     if(response == null ) {
       this.notificationService.error("Erreur inconnu")
     }

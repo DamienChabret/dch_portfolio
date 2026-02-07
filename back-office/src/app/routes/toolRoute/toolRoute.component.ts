@@ -1,24 +1,34 @@
 import { Component, inject, OnInit } from '@angular/core';
+import { MatTableModule } from '@angular/material/table';
 import { Tool } from '@models/Tool';
 import { ToolService } from '@services/ToolService';
+import { AddButtonComponent } from "@components/buttons/AddButton/AddButton.component";
+import { AddToolComponent } from './addTool/addTool.component';
 
 @Component({
   selector: 'app-tool-route',
   templateUrl: './toolRoute.component.html',
-  styleUrls: ['./toolRoute.component.css']
+  styleUrls: ['./toolRoute.component.css'],
+  standalone: true,
+  imports: [MatTableModule, AddButtonComponent, AddToolComponent]
 })
 export class ToolRouteComponent implements OnInit {
 
   private toolService : ToolService = inject(ToolService)
-  public skills : Tool[] = [];
-  displayedColumns: string[] = ['Id', 'Name', 'Description'];
-  displayNewToolModal! : boolean;
+  public tools : Tool[] = [];
+  public displayedColumns: string[] = ['Id', 'Name', 'Description'];
+  public displayAddModal! : boolean;
 
   async ngOnInit() {
-    this.getAllSkills();
+    this.getAllTools();
+    this.displayAddModal = false;
   }
 
-  async getAllSkills() {
-    this.skills = await this.toolService.getAllAsync();
+  async getAllTools() {
+    this.tools = await this.toolService.getAllAsync();
+  }
+
+  public toggleAddModal() : void{
+    this.displayAddModal = !this.displayAddModal;
   }
 }

@@ -2,15 +2,15 @@ import { ProjectStatus } from "./ProjectStatus";
 import { ProjectType } from "./ProjectType";
 
 export interface Project {
-   id: number;
-   name : string;
-   shortDescription : string;
-   description : string;
-   type : ProjectType;
-   githubLink? : string;
-   status?: ProjectStatus;
-   context?: string
-   softSkills? : string;
-   technologies? : string;
-   images: string[];
+   Id: number;
+   Name : string;
+   ShortDescription : string;
+   Description : string;
+   Type : ProjectType;
+   GithubLink? : string;
+   Status?: ProjectStatus;
+   Context?: string
+   SoftSkills? : string;
+   Technologies? : string;
+   Images: string[];
 }

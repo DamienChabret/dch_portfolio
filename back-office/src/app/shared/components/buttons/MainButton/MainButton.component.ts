@@ -1,14 +1,10 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   standalone: true,
-  selector: 'app-MainButton',
+  selector: 'app-main-button',
   templateUrl: './MainButton.component.html',
   styleUrls: ['./MainButton.component.css'],
 })
-export class MainButtonComponent implements OnInit {
-
-  constructor() {}
-
-  ngOnInit() {}
+export class MainButtonComponent {
 }

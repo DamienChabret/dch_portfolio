@@ -28,3 +28,15 @@ h1.route-title {
   padding: 30px;
   font-weight: bold;
 }
+
+table {
+  width: 100%;
+}
+
+.modal-form {
+  position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}

@@ -1,0 +1,24 @@
+<div class="createDegree">
+  <form class="form" [formGroup]="degreeForm" (ngSubmit)="onSubmit()">
+      <!-- Nom -->
+      <mat-form-field appearance="fill" class="field half">
+        <mat-label>Nom</mat-label>
+        <input matInput formControlName="name" placeholder="Description">
+      </mat-form-field>
+
+      <!-- Description -->
+      <mat-form-field appearance="fill" class="field half">
+        <mat-label>Description</mat-label>
+        <input matInput formControlName="description" placeholder="Description">
+      </mat-form-field>
+
+      <!-- Date d'obtention -->
+      <mat-form-field appearance="fill" class="field half">
+        <mat-label>Date d'obtention</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="dateObtained" placeholder="Date d'obtention">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+  </form>
+</div>

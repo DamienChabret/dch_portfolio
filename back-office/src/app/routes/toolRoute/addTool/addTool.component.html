@@ -1,0 +1,19 @@
+<div class="createTool">
+  <form class="form" [formGroup]="toolForm" (ngSubmit)="onSubmit()">
+    <h1 class="form-title">Create Tool</h1>
+
+    <mat-form-field appearance="fill" class="field half">
+      <mat-label>Nom</mat-label>
+      <input matInput formControlName="name" placeholder="Nom">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="field half">
+      <mat-label>Nom</mat-label>
+      <input matInput formControlName="description" placeholder="Description">
+    </mat-form-field>
+
+    <button matButton class="send-button" [disabled]="toolForm.invalid">
+      Envoyer
+    </button>
+  </form>
+</div>

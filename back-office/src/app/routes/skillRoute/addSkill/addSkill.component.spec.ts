@@ -1,23 +1,20 @@
-/* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
 
-import { SkillRouteComponent } from './addSkill.component';
+import { AddSkillComponent } from './addSkill.component';
 
 describe('AddSkillComponent', () => {
-  let component: SkillRouteComponent;
-  let fixture: ComponentFixture<SkillRouteComponent>;
+  let component: AddSkillComponent;
+  let fixture: ComponentFixture<AddSkillComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SkillRouteComponent ]
+      declarations: [ AddSkillComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SkillRouteComponent);
+    fixture = TestBed.createComponent(AddSkillComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Inject, Input } from '@angular/core';
 import { InAppNotification } from '@models/InterfaceNotificationInApp';
 import { NotificationService } from '@utils/NotificationManager';
 
@@ -7,9 +7,9 @@ import { NotificationService } from '@utils/NotificationManager';
   standalone: true,
   selector: 'app-notification',
   template: `
-    <div class="notification" [ngClass]="notification.type">
-      <p>{{ notification.type | uppercase }}</p>
-      <span>{{ notification.message }}</span>
+    <div class="notification" [ngClass]="notification.Type">
+      <p>{{ notification.Type | uppercase }}</p>
+      <span>{{ notification.Message }}</span>
       <button (click)="close()">×</button>
     </div>
   `,
@@ -54,10 +54,9 @@ import { NotificationService } from '@utils/NotificationManager';
 })
 export class NotificationComponent {
   @Input() notification!: InAppNotification;
-
-  constructor(private notificationService: NotificationService) {}
+  private notificationService : NotificationService = Inject(NotificationService);
 
   close() {
-    this.notificationService.remove(this.notification.id);
+    this.notificationService.remove(this.notification.Id);
   }
 }

@@ -1,8 +1,8 @@
 export interface InAppNotification {
-  id: string;
-  type: AppNotificationType;
-  message: string;
-  durationInMs?: number;
+  Id: string;
+  Type: AppNotificationType;
+  Message: string;
+  DurationInMs?: number;
 }
 
 export enum AppNotificationType {

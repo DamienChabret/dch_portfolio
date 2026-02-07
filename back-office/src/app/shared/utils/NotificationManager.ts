@@ -10,12 +10,12 @@ export class NotificationService {
 
   // --- Fonction générique ---
   private notify(
-    type: InAppNotification['type'],
+    type: InAppNotification['Type'],
     message: string,
     durationInMs = 3000
   ) {
     const id = crypto.randomUUID();
-    const newNotification: InAppNotification = { id, type, message, durationInMs };
+    const newNotification: InAppNotification = { Id: id, Type:type, Message:message, DurationInMs: durationInMs };
 
     this.notifications.push(newNotification);
     this.notificationsSubject.next(this.notifications);
@@ -44,7 +44,7 @@ export class NotificationService {
 
   // --- Suppression ---
   remove(id: string) {
-    this.notifications = this.notifications.filter((n) => n.id !== id);
+    this.notifications = this.notifications.filter((n) => n.Id !== id);
     this.notificationsSubject.next(this.notifications);
   }
 

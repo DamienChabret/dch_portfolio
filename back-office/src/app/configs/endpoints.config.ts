@@ -6,4 +6,7 @@ export const EndpointConfig = {
   SKILLS: "api/skills",
   SKILLS_ID: (id: string) : string => `api/skills/${id}`,
   TOOLS: "api/tools",
+  TOOL_ID: (id: string) : string => `api/tools/${id}`,
+  DEGREE: "api/degrees",
+  DEGREE_ID: (id: string) : string => `api/degrees/${id}`,
 };

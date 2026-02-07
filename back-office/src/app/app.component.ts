@@ -1,9 +1,11 @@
 import {Component, LOCALE_ID} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { CommonModule, registerLocaleData } from '@angular/common';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { NotificationContainerComponent } from '@components/notifications/notificationContainer/notificationContainer.component';
+import localeFr from '@angular/common/locales/fr';
+registerLocaleData(localeFr);
 
 @Component({
   selector: 'app-root',

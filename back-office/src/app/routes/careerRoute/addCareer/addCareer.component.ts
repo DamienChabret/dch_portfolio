@@ -12,9 +12,9 @@ import { Career } from '@models/Career';
 import { CareerContext } from '@models/CareerContext';
 
 @Component({
-  selector: 'app-addCareer',
+  selector: 'app-add-career',
   templateUrl: './addCareer.component.html',
-  styleUrls: ['../form.component.css'],
+  styleUrls: ['./addCareer.component.css'],
   standalone: true,
   imports: [MatFormFieldModule, MatButtonModule, FormsModule, CommonModule, ReactiveFormsModule, MatInputModule, MatOption, MatSelectModule]
 })
@@ -36,15 +36,15 @@ export class AddCareerComponent  {
 
   async onSubmit() {
     const career : Career = {
-      name: this.careerForm.value.name,
-      place: this.careerForm.value.place,
-      beginDate: this.careerForm.value.beginDate,
-      endDate: this.careerForm.value.endDate,
-      description: this.careerForm.value.description,
-      context: this.careerForm.value.context,
-      shortDescription: this.careerForm.value.shortDescription
+      Name: this.careerForm.value.name,
+      Place: this.careerForm.value.place,
+      BeginDate: this.careerForm.value.beginDate,
+      EndDate: this.careerForm.value.endDate,
+      Description: this.careerForm.value.description,
+      Context: this.careerForm.value.context,
+      ShortDescription: this.careerForm.value.shortDescription
     };
-    const response = await this.careerService.create(career);
+    const response = await this.careerService.addAsync(career);
     console.log(response);
     this.notificationService.success("Gooood");
   }

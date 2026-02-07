@@ -17,10 +17,10 @@
   </table>
 }
 
-<app-AddButton (clickEvent)="toggleNewSkillModal()"> </app-AddButton>
+<app-add-button (clickEvent)="toggleAddModal()"> </app-add-button>
 
-@if(displayNewSkillModal) {
-  <div class="addSkill-form">
-    <app-addSkill (addSkill)="toggleNewSkillModal()"> </app-addSkill>
+@if(displayAddModal) {
+  <div class="modal-form">
+    <app-add-skill (addSkill)="toggleAddModal()"> </app-add-skill>
   </div>
 }
