@@ -20,4 +20,16 @@ export class ProjectService {
                 return res as Project
             })
     }
+    
+    public async addAsync(project: Project) : Promise<Project> {
+        const headers: Headers = new Headers();
+        headers.set('Content-Type', 'application/json');
+        headers.set('Accept', 'application/json');
+        const request: RequestInfo = new Request(environment.apiUrl + EndpointConfig.PROJECTS, {
+            method: 'POST',
+            headers: headers,
+            body: JSON.stringify(project)
+        });
+        return fetch(request).then(res => res.json()).then(res => { return res as Project });
+    }
 }

@@ -2,7 +2,7 @@ import { ProjectStatus } from "./ProjectStatus";
 import { ProjectType } from "./ProjectType";
 
 export interface Project {
-   Id: number;
+   Id?: number;
    Name : string;
    ShortDescription : string;
    Description : string;
@@ -12,5 +12,5 @@ export interface Project {
    Context?: string
    SoftSkills? : string;
    Technologies? : string;
-   Images: string[];
+   Images?: string[];
 }

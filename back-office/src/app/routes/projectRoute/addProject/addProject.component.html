@@ -1,3 +1,44 @@
-<p>
-  addProject works!
-</p>
+<div class="createTool">
+  <form class="form" [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+    <h1 class="form-title">Create Tool</h1>
+
+    <mat-form-field appearance="fill" class="field half">
+      <mat-label>Nom</mat-label>
+      <input matInput formControlName="name" placeholder="Nom">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="field half">
+      <mat-label>Short Description</mat-label>
+      <input matInput formControlName="description" placeholder="Description">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="field half">
+      <mat-label>Description</mat-label>
+      <input matInput formControlName="description" placeholder="Description">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="field half">
+      <mat-label>Type</mat-label>
+      <input matInput formControlName="description" placeholder="Description">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="field half">
+      <mat-label>Github Link</mat-label>
+      <input matInput formControlName="description" placeholder="Description">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="field half">
+      <mat-label>Status</mat-label>
+      <input matInput formControlName="description" placeholder="Description">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="field half">
+      <mat-label>Context</mat-label>
+      <input matInput formControlName="description" placeholder="Description">
+    </mat-form-field>
+
+    <button matButton class="send-button" [disabled]="projectForm.invalid">
+      Envoyer
+    </button>
+  </form>
+</div>
